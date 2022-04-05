@@ -46,7 +46,7 @@ function PostsIntro({ posts = [1, 2, 3] }) {
         {isDesktopOrLaptop && (
           <div>
             <Image
-              src="/images/—Pngtree—hand drawn chili illustration creative_3830600.png"
+              src="/images/tree-news.png"
               width="300"
               height="500"
             />
