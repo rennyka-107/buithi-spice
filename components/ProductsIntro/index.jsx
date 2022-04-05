@@ -4,11 +4,11 @@ import React from "react";
 
 function ProductsIntro() {
   return (
-    <Box pad="medium" align="center">
+    <Box width="80%" pad="medium" align="center">
       <Heading level="2" margin="none">
         Products
       </Heading>
-      <Box style={{ flexWrap: "wrap", gap: "2em"}} direction="row" pad="3em 0" width="xlarge" justify="center">
+      <Box style={{ flexWrap: "wrap", gap: "2em"}} direction="row" pad="3em 0 1em 0" width="xlarge" justify="center">
         {[
           {
             name: "Peanut without shell and cover",
