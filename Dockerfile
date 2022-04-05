@@ -9,10 +9,10 @@ COPY . /var/www/html/
 COPY ./package*.json var/www/html/
 
 # Install dependencies
-RUN npm install --production
+# RUN npm install --production
 
 # Build app
-RUN npm run build
+# RUN npm run build
 
 # Expose the listening port
 EXPOSE 3000
