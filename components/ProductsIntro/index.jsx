@@ -4,7 +4,7 @@ import React from "react";
 
 function ProductsIntro() {
   return (
-    <Box width="xxlarge" pad="medium" align="center">
+    <Box pad="medium" align="center">
       <Heading level="2" margin="none">
         Products
       </Heading>

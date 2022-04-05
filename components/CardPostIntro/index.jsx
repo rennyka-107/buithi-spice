@@ -7,7 +7,7 @@ function CardPostIntro() {
       <div className="blog-slider__img">
         <img
           src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759872/kuldar-kalvik-799168-unsplash.webp"
-          alt=""
+          alt="slider example "
         />
       </div>
       <div className="blog-slider__content">

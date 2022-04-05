@@ -14,6 +14,7 @@ function ResponsiveHeader({ isDesktopOrLaptop, setShowSidebar }) {
           src="/images/275063685_1005091196774697_8380784716009099865_n.png"
           width="80"
           height="80"
+          alt="logo example"
         />
         <Button
           onClick={() => {

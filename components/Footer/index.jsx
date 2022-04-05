@@ -12,7 +12,6 @@ function FooterComponent() {
       pad="large"
       animation={{ type: "fadeIn", duration: 3000 }}
       align="center"
-      width="xxlarge"
       justify="center"
     >
       <Box width="50%" gap="small">
@@ -51,6 +50,7 @@ function FooterComponent() {
           src="/images/275063685_1005091196774697_8380784716009099865_n.png"
           width="150"
           height="150"
+          alt="footer example"
         />
         
       </Box>

@@ -59,7 +59,7 @@ function MyApp({ Component, pageProps }) {
       {mounted && !basePageLoading ? (
         <Box flex style={{ position: "relative" }}>
           <Header setShowSidebar={setShowSidebar} />
-          <Box onClick={() => setShowSidebar(false)}>
+          <Box width="100%" onClick={() => setShowSidebar(false)}>
             <Component {...pageProps} />
           </Box>
           <Footer />

@@ -30,7 +30,7 @@ function PostsIntro({ posts = [1, 2, 3] }) {
     });
   }, []);
   return (
-    <Box width="xxlarge" pad="small" align="center">
+    <Box pad="small" align="center">
       <Heading level="2" margin="none">
         Posts
       </Heading>
@@ -49,6 +49,7 @@ function PostsIntro({ posts = [1, 2, 3] }) {
               src="/images/tree-news.png"
               width="300"
               height="500"
+              alt="tree news example"
             />
           </div>
         )}

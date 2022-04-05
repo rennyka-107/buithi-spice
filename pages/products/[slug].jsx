@@ -18,7 +18,7 @@ function ViewProduct() {
           <Heading margin="0 0 1em 0" level="2">
             Example image
           </Heading>
-          <Image src="/images/profile-1.jpg" width="100%" height="500" />
+          <Image alt="product profile example" src="/images/profile-1.jpg" width="100%" height="500" />
         </Box>
         <Box width={isDesktopOrLaptop ? "60%" : "95%"} align="center">
           <Heading margin={isDesktopOrLaptop ? "0 0 1em 0" : "1em 0"} level="2">

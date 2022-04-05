@@ -16,7 +16,6 @@ function HeaderComponent({setShowSidebar}) {
       pad="small"
       animation={{ type: "fadeIn", duration: 3000 }}
       align="center"
-      width="xxlarge"
       justify={isDesktopOrLaptop ? "around" : "between"}
     >
       <ResponsiveHeader setShowSidebar={setShowSidebar} isDesktopOrLaptop={isDesktopOrLaptop} />

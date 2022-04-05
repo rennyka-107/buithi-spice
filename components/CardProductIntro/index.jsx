@@ -16,6 +16,7 @@ function CardProductIntro({ name, content }) {
         width="100%"
         height="250px"
         src="images/7Z_2104.w028.n002.57A.p15.57.jpg"
+        alt="product example"
       />
       <CardHeader as="h4" pad="small" style={{ margin: "0" }}>
         {name}
