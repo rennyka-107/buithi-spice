@@ -9,9 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "aos": "^2.3.4",
+    "axios": "^0.26.1",
+    "grommet": "^2.21.0",
+    "grommet-icons": "^4.7.0",
+    "lodash": "^4.17.21",
     "next": "12.1.0",
+    "query-string": "^7.1.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-responsive": "^9.0.0-beta.6",
+    "sass": "^1.49.9",
+    "scss": "^0.2.4",
+    "swiper": "^4.3.5"
   },
   "devDependencies": {
     "eslint": "8.11.0",

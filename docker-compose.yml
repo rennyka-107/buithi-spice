@@ -1,0 +1,32 @@
+version: "3.1"
+networks:
+  front-end:
+services:
+  front-end-nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+      args:
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
+    container_name: front-end-nginx
+    volumes:
+      - .:/var/www/html:delegated
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - front-end-npm
+    networks:
+      - front-end
+  front-end-npm:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: front-end-npm
+    volumes:
+      - .:/var/www/html
+    ports:
+      - 3000:3000
+    networks:
+      - front-end
