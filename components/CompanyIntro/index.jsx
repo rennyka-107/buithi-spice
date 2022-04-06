@@ -10,7 +10,7 @@ function CompanyIntro() {
   });
   return (
     <Box
-      margin="2em 0"
+      margin="5em 0"
       width="80%"
       align="center"
       direction={isDesktopOrLaptop ? "row" : "column"}

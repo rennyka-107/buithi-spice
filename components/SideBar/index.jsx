@@ -14,7 +14,7 @@ function SideBar() {
         <Avatar src="/images/275063685_1005091196774697_8380784716009099865_n.png" />
       }
     >
-      <Nav gap="medium" align="center">
+      <Nav pad="1em" gap="large" align="center">
         <Button
           onClick={() => {
             router.push("/");

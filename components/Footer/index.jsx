@@ -2,12 +2,17 @@ import React from "react";
 import { Button, Box, Heading, WorldMap } from "grommet";
 import Image from "next/image";
 import { Location, MailOption, Phone } from "grommet-icons";
+import { useMediaQuery } from "react-responsive";
 
 function FooterComponent() {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: "(min-width: 900px)",
+  });
   return (
     <Box
       background="dark-6"
-      direction="row"
+      direction={isDesktopOrLaptop ? "row" : "column"}
+      gap={isDesktopOrLaptop ? "" : "2em"}
       as="header"
       pad="large"
       animation={{ type: "fadeIn", duration: 3000 }}
