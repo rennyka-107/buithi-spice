@@ -114,8 +114,8 @@ export default withTachyonAdminAuth(function PrivateLogin() {
       toast.error("You need fill your email to be continued");
     }
   };
-
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
+    console.log(data, "asd");
     setOpen({ status: true, loading: true });
     if (!signUp) {
       if (flagRegister) {
@@ -220,7 +220,7 @@ export default withTachyonAdminAuth(function PrivateLogin() {
       }
     }
   };
-
+  console.log(errors)
   return (
     <Box pad="3em 0" align="center">
       <Card height="auto" width="75%" background="light-1">
@@ -239,7 +239,10 @@ export default withTachyonAdminAuth(function PrivateLogin() {
         </CardHeader>
         <CardBody pad="medium">
           <Box align="center">
-            <Form style={{ width: "100%" }} onSubmit={handleSubmit(onSubmit)}>
+            <Form
+              style={{ width: "100%" }}
+              onSubmit={handleSubmit(onSubmit)}
+            >
               {flagRegister ? (
                 <FormField name="code" label="Verify code">
                   <TextInput
@@ -253,12 +256,12 @@ export default withTachyonAdminAuth(function PrivateLogin() {
               ) : (
                 <>
                   {signUp && (
-                    <FormField name="username" label="Username">
+                    <FormField name="name" label="Username">
                       <TextInput
-                        {...register("username", { required: true })}
-                        name="username"
+                        {...register("name", { required: true })}
+                        name="name"
                       />
-                      {errors.username && (
+                      {errors.name && (
                         <span style={{ color: "red" }}>
                           This field is required
                         </span>
@@ -293,7 +296,7 @@ export default withTachyonAdminAuth(function PrivateLogin() {
                       <TextInput
                         {...register("confirmPassword", { required: true })}
                         name="confirmPassword"
-                        type="confirmPassword"
+                        type="password"
                       />
                       {errors.confirmPassword && (
                         <span style={{ color: "red" }}>
