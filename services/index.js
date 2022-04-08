@@ -5,7 +5,7 @@ import queryString from "query-string";
 import { toast } from "react-toastify";
 
 const axiosClient = axios.create({
-  baseURL: "http://localhost:81/",
+  baseURL: "https://buithispice/api/",
   paramsSerializer: (params) => queryString.stringify(params),
   withCredentials: true,
 });
