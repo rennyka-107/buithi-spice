@@ -1,4 +1,4 @@
-import {  Box, Button } from "grommet";
+import { Box, Button } from "grommet";
 import { Apps } from "grommet-icons";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -23,14 +23,16 @@ function ResponsiveHeader({ isDesktopOrLaptop, setShowSidebar }) {
           plain
           label="Home"
           hoverIndicator
+          color="status-ok"
         />
         <Button
-          onClick={() => {
-            router.push("/products/123");
-          }}
+          // onClick={() => {
+          //   router.push("/products/123");
+          // }}
           plain
           label="Products"
           hoverIndicator
+          color="status-ok"
         />
         <Button
           onClick={() => {
@@ -38,6 +40,7 @@ function ResponsiveHeader({ isDesktopOrLaptop, setShowSidebar }) {
           }}
           plain
           label="About us"
+          color="status-ok"
           hoverIndicator
         />
       </Box>

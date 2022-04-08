@@ -4,6 +4,9 @@ import React from "react";
 function Banner() {
   return (
     <Box
+      data-aos="flip-left"
+      data-aos-delay="1000"
+      data-aos-duration="2000"
       width="100%"
       background="url(images/71db850127cdb08910945edecb41df71.jpg)"
       height="600px"

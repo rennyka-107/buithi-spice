@@ -16,13 +16,35 @@ function CompanyIntro() {
       direction={isDesktopOrLaptop ? "row" : "column"}
       justify="around"
     >
-      <Image
+      <div
+        style={{ width: isDesktopOrLaptop ? "40%" : "100%" }}
+        data-aos="fade-right"
+        data-aos-delay="1000"
+        data-aos-duration="2000"
+      >
+        <Image
+          width="100%"
+          height="350px"
+          src="images/kisspng-drawing-agriculture-royalty-free-tractor-clip-art-hand-drawn-land-harvesting-wheat-5aa5d112583690.9368897615208164023613.png"
+        />
+      </div>
+      <Box
+        data-aos="fade-left"
+        data-aos-delay="1000"
+        data-aos-duration="2000"
         width={isDesktopOrLaptop ? "40%" : "100%"}
-        height="350px"
-        src="images/kisspng-drawing-agriculture-royalty-free-tractor-clip-art-hand-drawn-land-harvesting-wheat-5aa5d112583690.9368897615208164023613.png"
-      />
-      <Box width={isDesktopOrLaptop ? "40%" : "100%"}>
-        <Heading level="2">Welcome to BuiThi Agriculture</Heading>
+      >
+        <Heading level="2">
+          Welcome to{" "}
+          <span
+            style={{
+              color:
+                "limegreen",
+            }}
+          >
+            BuiThi Agriculture
+          </span>
+        </Heading>
         <Paragraph>
           BuiThi Agriculture is fulfilling needs of Lotus seeds, Cassia /
           cinnamon, Star anise and lots of agricultural food commodities. Our

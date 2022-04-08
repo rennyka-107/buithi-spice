@@ -4,13 +4,15 @@ import { useMediaQuery } from "react-responsive";
 import ProductApi from "services/products";
 import parse from "html-react-parser";
 
-
 function ViewProduct({ imageUrl = "", title = "", content = "", ...props }) {
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 900px)",
   });
   return (
     <>
+        <Heading color="neutral-1" alignSelf="center" margin={isDesktopOrLaptop ? "0 0 1em 0" : "1em 0"} level="2">
+          {title}
+        </Heading>
       <Box
         pad="medium"
         direction={isDesktopOrLaptop ? "row" : "column"}
@@ -18,9 +20,6 @@ function ViewProduct({ imageUrl = "", title = "", content = "", ...props }) {
         justify="around"
       >
         <Box width={isDesktopOrLaptop ? "35%" : "95%"} align="center">
-          <Heading margin="0 0 1em 0" level="2">
-            Example image
-          </Heading>
           <Image
             alt="product profile example"
             src={imageUrl}
@@ -29,9 +28,6 @@ function ViewProduct({ imageUrl = "", title = "", content = "", ...props }) {
           />
         </Box>
         <Box width={isDesktopOrLaptop ? "60%" : "95%"} align="center">
-          <Heading margin={isDesktopOrLaptop ? "0 0 1em 0" : "1em 0"} level="2">
-            {title}
-          </Heading>
           {parse(content)}
           {/* <Box pad="medium" direction="row" justify="center" gap="1em">
             <Heading alignSelf="center" level="5" margin="none">

@@ -25,8 +25,15 @@ function PostsIntro({ posts }) {
     });
   }, []);
   return (
-    <Box width="80%" pad="small" align="center">
-      <Heading level="2" margin="none">
+    <Box
+      data-aos="zoom-out"
+      data-aos-delay="1000"
+      data-aos-duration="2000"
+      width="80%"
+      pad="small"
+      align="center"
+    >
+      <Heading level="2" color="neutral-1" margin="none">
         Posts
       </Heading>
       <Box direction="row" pad="3em 0" width="100%" justify="between">

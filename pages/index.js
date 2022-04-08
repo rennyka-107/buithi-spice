@@ -7,14 +7,13 @@ import { isEmpty } from "lodash";
 import PostApi from "services/posts";
 import ProductApi from "services/products";
 
-export default function Home({products, posts, errors}) {
+export default function Home({ products, posts, errors }) {
   return (
     <Box align="center">
       <Banner />
       <CompanyIntro />
       {!isEmpty(products) && <ProductsIntro products={products} />}
       {!isEmpty(posts) && <PostsIntro posts={posts} />}
-      
     </Box>
   );
 }
@@ -38,15 +37,14 @@ export async function getServerSideProps(context) {
     if (dataProducts && dataProducts.status) {
       propsProducts = dataProducts.products;
     }
-   
   } catch (error) {
-    propsErrors = "Failed"
+    propsErrors = "Failed";
   }
   return {
     props: {
       errors: propsErrors || "",
       posts: propsPosts || [],
-      products: propsProducts || []
-    }
-  }
+      products: propsProducts || [],
+    },
+  };
 }

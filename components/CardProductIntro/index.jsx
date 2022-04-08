@@ -13,10 +13,10 @@ function CardProductIntro({ title, description, imageUrl, id, ...props }) {
       background="light-1"
     >
       <Image width="100%" height="250px" src={imageUrl} alt="product example" />
-      <CardHeader as="h4" pad="small" style={{ margin: "0" }}>
+      <CardHeader justify="center" as="h3" pad="small" style={{ margin: "0" }}>
         {title}
       </CardHeader>
-      <CardBody pad="small" style={{ paddingTop: "0" }}>
+      <CardBody pad="medium" style={{ paddingTop: "0" }}>
         {description}
       </CardBody>
     </Card>

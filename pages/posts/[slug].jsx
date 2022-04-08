@@ -17,7 +17,7 @@ function ViewPost({ imageUrl, title, content, ...props }) {
           />
         </Box>
         <Box width="80%" align="center">
-          <Heading margin="1em 0" level="2">
+          <Heading color="neutral-1" margin="1em 0" level="2">
             {title}
           </Heading>
           {parse(content)}
