@@ -1,25 +1,28 @@
-import React, { useEffect } from "react";
+import dayjs from "dayjs";
+import Link from "next/link";
+import React from "react";
 
-function CardPostIntro() {  
-
+function CardPostIntro({
+  title,
+  description,
+  createdAt,
+  imageUrl,
+  id,
+  ...props
+}) {
+  const convertDay = dayjs(createdAt, "DD-MM-YYYY").toString();
   return (
     <div className="blog-slider__item swiper-slide">
       <div className="blog-slider__img">
-        <img
-          src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759872/kuldar-kalvik-799168-unsplash.webp"
-          alt="slider example "
-        />
+        <img src={imageUrl} alt="slider example" />
       </div>
       <div className="blog-slider__content">
-        <span className="blog-slider__code">26 December 2019</span>
-        <div className="blog-slider__title">Lorem Ipsum Dolor</div>
-        <div className="blog-slider__text">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae
-          voluptate repellendus magni illo ea animi?{" "}
-        </div>
-        <a href="#" className="blog-slider__button">
-          READ MORE
-        </a>
+        <span className="blog-slider__code">{convertDay}</span>
+        <div className="blog-slider__title">{title}</div>
+        <div className="blog-slider__text">{description}</div>
+        <Link passHref href={`/posts/${id}`}>
+          <a className="blog-slider__button">READ MORE</a>
+        </Link>
       </div>
     </div>
   );

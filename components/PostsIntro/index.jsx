@@ -5,7 +5,7 @@ import Swiper from "swiper";
 import "swiper/dist/css/swiper.css";
 import "swiper/dist/css/swiper.min.css";
 
-function PostsIntro({ posts = [1, 2, 3] }) {
+function PostsIntro({ posts }) {
   useEffect(() => {
     const swiper = new Swiper(".blog-slider", {
       spaceBetween: 30,
@@ -33,7 +33,7 @@ function PostsIntro({ posts = [1, 2, 3] }) {
         <div className="blog-slider">
           <div className="blog-slider__wrp swiper-wrapper">
             {posts.map((post, idx) => (
-              <CardPostIntro key={`${idx} swiper-tachyon`} post={post} />
+              <CardPostIntro key={`${idx} swiper-tachyon`} {...post} />
             ))}
           </div>
           <div className="blog-slider__pagination"></div>

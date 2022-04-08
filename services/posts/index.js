@@ -8,8 +8,8 @@ const PostApi = {
   getPostById(id) {
     return axiosClient.get(`${POSTS}/${id}`);
   },
-  getAllPosts() {
-    return axiosClient.get(POSTS);
+  getAllPosts({ page = 1, size = 10 }) {
+    return axiosClient.get(`${POSTS}?page=${page}&size=${size}`);
   },
   getPostsByCategory(categoryId, { page = 1, size = 10 }) {
     return axiosClient.get(

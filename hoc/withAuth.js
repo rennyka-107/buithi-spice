@@ -12,10 +12,10 @@ const withAuth = (Component) => {
     const router = useRouter();
 
     // If user is not logged in, return login component
-    // if (isEmpty(user)) {
-    //   router.push("/");
-    //   return <BasePageLoading />;
-    // }
+    if (isEmpty(user)) {
+      router.push("/");
+      return <BasePageLoading />;
+    }
 
     // If user is logged in, return original component
     return <Component {...props} />;

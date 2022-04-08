@@ -1,8 +1,11 @@
 import { Box, Heading, Image, Tag } from "grommet";
 import React from "react";
 import { useMediaQuery } from "react-responsive";
+import ProductApi from "services/products";
+import parse from "html-react-parser";
 
-function ViewProduct() {
+
+function ViewProduct({ imageUrl = "", title = "", content = "", ...props }) {
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 900px)",
   });
@@ -18,58 +21,19 @@ function ViewProduct() {
           <Heading margin="0 0 1em 0" level="2">
             Example image
           </Heading>
-          <Image alt="product profile example" src="/images/profile-1.jpg" width="100%" height="500" />
+          <Image
+            alt="product profile example"
+            src={imageUrl}
+            width="100%"
+            height="500"
+          />
         </Box>
         <Box width={isDesktopOrLaptop ? "60%" : "95%"} align="center">
           <Heading margin={isDesktopOrLaptop ? "0 0 1em 0" : "1em 0"} level="2">
-            Lorem ipsum
+            {title}
           </Heading>
-          What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing
-          and typesetting industry. Lorem Ipsum has been the industrys standard
-          dummy text ever since the 1500s, when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book. It has survived
-          not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged. It was popularised in
-          the 1960s with the release of Letraset sheets containing Lorem Ipsum
-          passages, and more recently with desktop publishing software like
-          Aldus PageMaker including versions of Lorem Ipsum. What is Lorem
-          Ipsum? Lorem Ipsum is simply dummy text of the printing and
-          typesetting industry. Lorem Ipsum has been the industrys standard
-          dummy text ever since the 1500s, when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book. It has survived
-          not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged. It was popularised in
-          the 1960s with the release of Letraset sheets containing Lorem Ipsum
-          passages, and more recently with desktop publishing software like
-          Aldus PageMaker including versions of Lorem Ipsum. What is Lorem
-          Ipsum? Lorem Ipsum is simply dummy text of the printing and
-          typesetting industry. Lorem Ipsum has been the industrys standard
-          dummy text ever since the 1500s, when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book. It has survived
-          not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged. It was popularised in
-          the 1960s with the release of Letraset sheets containing Lorem Ipsum
-          passages, and more recently with desktop publishing software like
-          Aldus PageMaker including versions of Lorem Ipsum. What is Lorem
-          Ipsum? Lorem Ipsum is simply dummy text of the printing and
-          typesetting industry. Lorem Ipsum has been the industrys standard
-          dummy text ever since the 1500s, when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book. It has survived
-          not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged. It was popularised in
-          the 1960s with the release of Letraset sheets containing Lorem Ipsum
-          passages, and more recently with desktop publishing software like
-          Aldus PageMaker including versions of Lorem Ipsum. What is Lorem
-          Ipsum? Lorem Ipsum is simply dummy text of the printing and
-          typesetting industry. Lorem Ipsum has been the industrys standard
-          dummy text ever since the 1500s, when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book. It has survived
-          not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged. It was popularised in
-          the 1960s with the release of Letraset sheets containing Lorem Ipsum
-          passages, and more recently with desktop publishing software like
-          Aldus PageMaker including versions of Lorem Ipsum.
-          <Box pad="medium" direction="row" justify="center" gap="1em">
+          {parse(content)}
+          {/* <Box pad="medium" direction="row" justify="center" gap="1em">
             <Heading alignSelf="center" level="5" margin="none">
               Tags:
             </Heading>
@@ -77,7 +41,7 @@ function ViewProduct() {
             <Tag value="value" />
             <Tag value="value" />
             <Tag value="value" />
-          </Box>
+          </Box> */}
         </Box>
       </Box>
     </>
@@ -85,3 +49,23 @@ function ViewProduct() {
 }
 
 export default ViewProduct;
+
+export async function getServerSideProps({ params }) {
+  try {
+    const { slug } = params;
+    const {
+      data: { product },
+    } = await ProductApi.getProductById(slug);
+    return {
+      props: {
+        ...product,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        error: "Failed",
+      },
+    };
+  }
+}

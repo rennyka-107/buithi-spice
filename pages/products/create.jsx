@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import parse from "html-react-parser";
 import { isValidFileImage } from "helpers/validate";
 import { Controller, useForm } from "react-hook-form";
-import PostApi from "services/posts";
+import ProductApi from "services/products";
 import { convertToSlug } from "helpers";
 import { useRouter } from "next/router";
 import { WrapContext } from "pages/_app";
@@ -27,7 +27,7 @@ import { useMediaQuery } from "react-responsive";
 import CkEditorComponent from "components/CkEditorComponent";
 import PostPreview from "components/PostPreview";
 
-export default withAuth(function CreatePost() {
+export default withAuth(function CreateProduct() {
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 900px)",
   });
@@ -45,16 +45,13 @@ export default withAuth(function CreatePost() {
   const [errorFile, setErrorFile] = useState("");
   const [file, setFile] = useState(null);
   const [image, setImage] = useState("");
-  const { auth } = useContext(WrapContext);
-  const { user } = auth;
   const [categories, setCategories] = useState([]);
   const [openPreview, setOpenPreview] = useState(false);
   const inputRef = useRef(null);
 
   async function onSubmit(data) {
     setLoading(true);
-    PostApi.createNewPost({
-      userId: user?.id,
+    ProductApi.createNewProduct({
       slug: convertToSlug(data.title),
       ...data,
       category_id: data?.category?.id,
@@ -62,8 +59,8 @@ export default withAuth(function CreatePost() {
       content,
     })
       .then((result) => {
-        if (result.data && result.data.post) {
-          router.push(`${result.data.post.id}`);
+        if (result.data && result.data.product) {
+          router.push(`${result.data.product.id}`);
         }
       })
       .catch((err) => {
@@ -119,7 +116,7 @@ export default withAuth(function CreatePost() {
               </div>
             )}
             <Heading level="3" style={{ textTransform: "uppercase" }}>
-              Write a new post
+              Write a new product
             </Heading>
           </Box>
         </CardHeader>

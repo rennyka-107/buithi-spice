@@ -3,14 +3,49 @@ import CompanyIntro from "components/CompanyIntro";
 import PostsIntro from "components/PostsIntro";
 import ProductsIntro from "components/ProductsIntro";
 import { Box } from "grommet";
+import PostApi from "services/posts";
+import ProductApi from "services/products";
 
-export default function Home() {
+export default function Home({products, posts, errors}) {
+  console.log(posts, products, "hehe")
   return (
     <Box align="center">
       <Banner />
       <CompanyIntro />
-      <ProductsIntro />
-      <PostsIntro />
+      <ProductsIntro products={products} />
+      <PostsIntro posts={posts} />
     </Box>
   );
+}
+
+export async function getServerSideProps(context) {
+  let propsPosts;
+  let propsProducts;
+  let propsErrors;
+  try {
+    const { data: dataPosts } = await PostApi.getAllPosts({
+      page: 1,
+      size: 3,
+    });
+    const { data: dataProducts } = await ProductApi.getAllProducts({
+      page: 1,
+      size: 3,
+    });
+    if (dataPosts && dataPosts.status) {
+      propsPosts = dataPosts.posts;
+    }
+    if (dataProducts && dataProducts.status) {
+      propsProducts = dataProducts.products;
+    }
+   
+  } catch (error) {
+    propsErrors = "Failed"
+  }
+  return {
+    props: {
+      errors: propsErrors || "",
+      posts: propsPosts || [],
+      products: propsProducts || []
+    }
+  }
 }

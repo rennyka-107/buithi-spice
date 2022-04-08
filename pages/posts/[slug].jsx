@@ -1,80 +1,27 @@
 import { Box, Heading, Image, Tag } from "grommet";
 import React from "react";
 import { useMediaQuery } from "react-responsive";
+import PostApi from "services/posts";
+import parse from "html-react-parser";
 
-function ViewPost() {
-  const isDesktopOrLaptop = useMediaQuery({
-    query: "(min-width: 900px)",
-  });
+function ViewPost({ imageUrl, title, content, ...props }) {
   return (
     <>
-      <Box
-        pad="medium"
-        direction={isDesktopOrLaptop ? "row" : "column"}
-        align={isDesktopOrLaptop ? "" : "center"}
-        justify="around"
-      >
-        <Box width={isDesktopOrLaptop ? "35%" : "95%"} align="center">
-          <Heading margin="0 0 1em 0" level="2">
-            Cover image
-          </Heading>
+      <Box pad="medium" direction={"column"} align="center" justify="around">
+        <Box width="60%" align="center">
           <Image
             alt="product profile example"
-            src="/images/profile-1.jpg"
+            src={imageUrl}
             width="100%"
             height="500"
           />
         </Box>
-        <Box width={isDesktopOrLaptop ? "60%" : "95%"} align="center">
-          <Heading margin={isDesktopOrLaptop ? "0 0 1em 0" : "1em 0"} level="2">
-            Lorem ipsum
+        <Box width="80%" align="center">
+          <Heading margin="1em 0" level="2">
+            {title}
           </Heading>
-          What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing
-          and typesetting industry. Lorem Ipsum has been the industrys standard
-          dummy text ever since the 1500s, when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book. It has survived
-          not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged. It was popularised in
-          the 1960s with the release of Letraset sheets containing Lorem Ipsum
-          passages, and more recently with desktop publishing software like
-          Aldus PageMaker including versions of Lorem Ipsum. What is Lorem
-          Ipsum? Lorem Ipsum is simply dummy text of the printing and
-          typesetting industry. Lorem Ipsum has been the industrys standard
-          dummy text ever since the 1500s, when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book. It has survived
-          not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged. It was popularised in
-          the 1960s with the release of Letraset sheets containing Lorem Ipsum
-          passages, and more recently with desktop publishing software like
-          Aldus PageMaker including versions of Lorem Ipsum. What is Lorem
-          Ipsum? Lorem Ipsum is simply dummy text of the printing and
-          typesetting industry. Lorem Ipsum has been the industrys standard
-          dummy text ever since the 1500s, when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book. It has survived
-          not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged. It was popularised in
-          the 1960s with the release of Letraset sheets containing Lorem Ipsum
-          passages, and more recently with desktop publishing software like
-          Aldus PageMaker including versions of Lorem Ipsum. What is Lorem
-          Ipsum? Lorem Ipsum is simply dummy text of the printing and
-          typesetting industry. Lorem Ipsum has been the industrys standard
-          dummy text ever since the 1500s, when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book. It has survived
-          not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged. It was popularised in
-          the 1960s with the release of Letraset sheets containing Lorem Ipsum
-          passages, and more recently with desktop publishing software like
-          Aldus PageMaker including versions of Lorem Ipsum. What is Lorem
-          Ipsum? Lorem Ipsum is simply dummy text of the printing and
-          typesetting industry. Lorem Ipsum has been the industrys standard
-          dummy text ever since the 1500s, when an unknown printer took a galley
-          of type and scrambled it to make a type specimen book. It has survived
-          not only five centuries, but also the leap into electronic
-          typesetting, remaining essentially unchanged. It was popularised in
-          the 1960s with the release of Letraset sheets containing Lorem Ipsum
-          passages, and more recently with desktop publishing software like
-          Aldus PageMaker including versions of Lorem Ipsum.
-          <Box pad="medium" direction="row" justify="center" gap="1em">
+          {parse(content)}
+          {/* <Box pad="medium" direction="row" justify="center" gap="1em">
             <Heading alignSelf="center" level="5" margin="none">
               Tags:
             </Heading>
@@ -82,7 +29,7 @@ function ViewPost() {
             <Tag value="value" />
             <Tag value="value" />
             <Tag value="value" />
-          </Box>
+          </Box> */}
         </Box>
       </Box>
     </>
@@ -90,3 +37,23 @@ function ViewPost() {
 }
 
 export default ViewPost;
+
+export async function getServerSideProps({ params }) {
+  try {
+    const { slug } = params;
+    const {
+      data: { post },
+    } = await PostApi.getPostById(slug);
+    return {
+      props: {
+        ...post,
+      },
+    };
+  } catch (error) {
+    return {
+      props: {
+        error: "Failed",
+      },
+    };
+  }
+}

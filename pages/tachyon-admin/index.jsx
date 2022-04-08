@@ -18,7 +18,8 @@ import { useMediaQuery } from "react-responsive";
 import { WrapContext } from "pages/_app";
 
 export default function TachyonAdmin() {
-  const { setIsTachyonAdmin } = useContext(WrapContext);
+  const { setIsTachyonAdmin, auth } = useContext(WrapContext);
+  const { user } = auth;
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 900px)",
   });
@@ -29,7 +30,11 @@ export default function TachyonAdmin() {
     formState: { errors },
   } = useForm();
   const router = useRouter();
-
+  useEffect(() => {
+    if (user) {
+      router.push("/");
+    }
+  }, [user]);
   async function onSubmit(data) {
     const { username, password } = data;
     if (username === "tachyon-107" && password === "12345@12345") {

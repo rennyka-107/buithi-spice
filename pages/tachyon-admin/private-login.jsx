@@ -152,6 +152,7 @@ export default withTachyonAdminAuth(function PrivateLogin() {
                   setAuth({ user, accessToken });
                   setOpen({ status: false, loading: false });
                   toast.success("Welcome! Login successfully!");
+                  router.push("/");
                 }
                 if (res.data && !res.data.status) {
                   toast.error(
