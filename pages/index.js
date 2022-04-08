@@ -3,6 +3,7 @@ import CompanyIntro from "components/CompanyIntro";
 import PostsIntro from "components/PostsIntro";
 import ProductsIntro from "components/ProductsIntro";
 import { Box } from "grommet";
+import { isEmpty } from "lodash";
 import PostApi from "services/posts";
 import ProductApi from "services/products";
 
@@ -11,8 +12,8 @@ export default function Home({products, posts, errors}) {
     <Box align="center">
       <Banner />
       <CompanyIntro />
-      {products && <ProductsIntro products={products} />}
-      {posts && <PostsIntro posts={posts} />}
+      {!isEmpty(products) && <ProductsIntro products={products} />}
+      {!isEmpty(posts) && <PostsIntro posts={posts} />}
       
     </Box>
   );
