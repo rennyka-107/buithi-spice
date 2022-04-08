@@ -7,13 +7,13 @@ import PostApi from "services/posts";
 import ProductApi from "services/products";
 
 export default function Home({products, posts, errors}) {
-  console.log(posts, products, "hehe")
   return (
     <Box align="center">
       <Banner />
       <CompanyIntro />
-      <ProductsIntro products={products} />
-      <PostsIntro posts={posts} />
+      {products && <ProductsIntro products={products} />}
+      {posts && <PostsIntro posts={posts} />}
+      
     </Box>
   );
 }
