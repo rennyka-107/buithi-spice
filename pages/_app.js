@@ -37,6 +37,7 @@ function MyApp({ Component, pageProps }) {
       duration: 500,
       delay: 500,
       easing: "ease-out",
+      once: true
     });
   }, []);
 
