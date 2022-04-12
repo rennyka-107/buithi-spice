@@ -38,6 +38,7 @@ export async function getServerSideProps(context) {
       propsProducts = dataProducts.products;
     }
   } catch (error) {
+    console.log(error, "error here")
     propsErrors = "Failed";
   }
   return {
