@@ -32,9 +32,9 @@ class MyDocument extends Document {
           <link
             rel="preconnect"
             href="https://fonts.googleapis.com"
-            crossorigin
+            crossOrigin
           />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
           <link
             href="https://fonts.googleapis.com/css2?family=Pacifico&family=Space+Grotesk:wght@605&display=swap"
             rel="stylesheet"
