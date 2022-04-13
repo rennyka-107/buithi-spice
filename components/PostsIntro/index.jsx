@@ -33,7 +33,7 @@ function PostsIntro({ posts }) {
       pad="small"
       align="center"
     >
-      <Heading level="2" color="neutral-1" margin="none">
+      <Heading className="linear-header" level="2" margin="none">
         Posts
       </Heading>
       <Box direction="row" pad="3em 0" width="100%" justify="between">

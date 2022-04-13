@@ -11,7 +11,7 @@ export default function Home({ products, posts, errors }) {
   return (
     <Box align="center">
       <Banner />
-      <CompanyIntro />
+      {/* <CompanyIntro /> */}
       {!isEmpty(products) && <ProductsIntro products={products} />}
       {!isEmpty(posts) && <PostsIntro posts={posts} />}
     </Box>

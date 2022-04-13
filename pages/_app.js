@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }) {
       duration: 500,
       delay: 500,
       easing: "ease-out",
-      once: true
+      once: true,
     });
   }, []);
 
@@ -77,7 +77,7 @@ function MyApp({ Component, pageProps }) {
     auth,
     setAuth,
     isTachyonAdmin,
-    setIsTachyonAdmin
+    setIsTachyonAdmin,
   };
 
   return (
@@ -93,12 +93,22 @@ function MyApp({ Component, pageProps }) {
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" />
 
         {mounted && !basePageLoading ? (
-          <Box flex style={{ position: "relative" }}>
+          <Box
+            flex
+            style={{
+              position: "relative",
+            }}
+          >
             <Header setShowSidebar={setShowSidebar} />
             <Box
               width="100%"
               onClick={() => setShowSidebar(false)}
-              style={{ cursor: "unset" }}
+              style={{
+                cursor: "unset",
+                backgroundColor: "#f5e3e6",
+                backgroundImage:
+                  "linear-gradient(315deg, #f5e3e6 0%, #d9e4f5 74%)",
+              }}
             >
               <ToastContainer
                 position="top-right"

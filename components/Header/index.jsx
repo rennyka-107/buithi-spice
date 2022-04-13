@@ -1,10 +1,10 @@
 import React from "react";
 import { Box, TextInput } from "grommet";
-import {  Search } from "grommet-icons";
+import { Search } from "grommet-icons";
 import { useMediaQuery } from "react-responsive";
 import ResponsiveHeader from "./ResponsiveHeader";
 
-function HeaderComponent({setShowSidebar}) {
+function HeaderComponent({ setShowSidebar }) {
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 900px)",
   });
@@ -16,17 +16,19 @@ function HeaderComponent({setShowSidebar}) {
       pad="small"
       animation={{ type: "fadeIn", duration: 3000 }}
       align="center"
+      style={{
+        background: "#ff5f6d",
+        background: "-webkit-linear-gradient(to right, #ff5f6d, #ffc371)",
+        background: "linear-gradient(to right, #ff5f6d, #ffc371)",
+        color: "white",
+      }}
       justify={isDesktopOrLaptop ? "around" : "between"}
     >
-      <ResponsiveHeader setShowSidebar={setShowSidebar} isDesktopOrLaptop={isDesktopOrLaptop} />
+      <ResponsiveHeader
+        setShowSidebar={setShowSidebar}
+        isDesktopOrLaptop={isDesktopOrLaptop}
+      />
       <Box width="medium">
-        <TextInput
-          icon={<Search />}
-          placeholder="Search somethings..."
-          value=""
-          size="small"
-          // onChange={(event) => setValue(event.target.value)}
-        />
       </Box>
     </Box>
   );

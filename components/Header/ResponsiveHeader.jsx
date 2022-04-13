@@ -11,7 +11,7 @@ function ResponsiveHeader({ isDesktopOrLaptop, setShowSidebar }) {
     return (
       <Box direction="row" gap="large">
         <Image
-          src="/images/275063685_1005091196774697_8380784716009099865_n.png"
+          src="/images/logo.png"
           width="80"
           height="80"
           alt="logo example"
@@ -23,7 +23,6 @@ function ResponsiveHeader({ isDesktopOrLaptop, setShowSidebar }) {
           plain
           label="Home"
           hoverIndicator
-          color="status-ok"
         />
         <Button
           // onClick={() => {
@@ -32,7 +31,6 @@ function ResponsiveHeader({ isDesktopOrLaptop, setShowSidebar }) {
           plain
           label="Products"
           hoverIndicator
-          color="status-ok"
         />
         <Button
           onClick={() => {
@@ -40,7 +38,6 @@ function ResponsiveHeader({ isDesktopOrLaptop, setShowSidebar }) {
           }}
           plain
           label="About us"
-          color="status-ok"
           hoverIndicator
         />
       </Box>

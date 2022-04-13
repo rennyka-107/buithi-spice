@@ -1,7 +1,7 @@
 import React from "react";
-import { Button, Box, Heading, WorldMap } from "grommet";
+import { Button, Box, Heading, WorldMap, Avatar } from "grommet";
 import Image from "next/image";
-import { Location, MailOption, Phone } from "grommet-icons";
+import { Amazon, Location, MailOption, Phone } from "grommet-icons";
 import { useMediaQuery } from "react-responsive";
 
 function FooterComponent() {
@@ -10,23 +10,34 @@ function FooterComponent() {
   });
   return (
     <Box
-      background="dark-6"
       direction={isDesktopOrLaptop ? "row" : "column"}
       gap={isDesktopOrLaptop ? "" : "2em"}
       as="header"
       pad="large"
+      style={{
+        background: "#ff5f6d",
+        background: "-webkit-linear-gradient(to right, #ff5f6d, #ffc371)",
+        background: "linear-gradient(to right, #ff5f6d, #ffc371)",
+        color: "white",
+      }}
       animation={{ type: "fadeIn", duration: 3000 }}
       align="center"
-      justify="center"
+      justify={isDesktopOrLaptop ? "around" : "center"}
     >
-      <Box width="50%" gap="small">
+      <Box>
+        <Image width="200" height="200" src="/images/logo.png" />
+      </Box>
+      <Box gap="small">
+        <Heading alignSelf="center" level="3" style={{ fontWeight: "bold" }}>
+          Contact
+        </Heading>
         <Heading
           style={{ display: "flex", gap: "1em", alignItems: "center" }}
           level="4"
           direction="row"
           margin="none"
         >
-          <Location size="medium" />
+          <Location color="white" size="medium" />
           Address: 14 alleys 381/42 Thuy Phuong Street, Thuy Phuong Ward, Bac Tu
           Liem District, Hanoi.
         </Heading>
@@ -36,7 +47,7 @@ function FooterComponent() {
           icon={<Location color="plain" />}
           margin="none"
         >
-          <Phone size="medium" />
+          <Phone color="white" size="medium" />
           Mobi/Whatsapp/Viber: +84964210796
         </Heading>
         <Heading
@@ -45,19 +56,46 @@ function FooterComponent() {
           icon={<Location color="plain" />}
           margin="none"
         >
-          <MailOption size="medium" />
+          <MailOption color="white" size="medium" />
           Email: buican.vinaherb@gmail.com
         </Heading>
       </Box>
-      <Box>
-        
-        <Image
-          src="/images/275063685_1005091196774697_8380784716009099865_n.png"
-          width="150"
-          height="150"
-          alt="footer example"
-        />
-        
+      <Box gap="small">
+        <Heading alignSelf="center" level="3" style={{ fontWeight: "bold" }}>
+          Ecommerce shop
+        </Heading>
+        <Heading
+          style={{ display: "flex", gap: "1em", alignItems: "center" }}
+          level="4"
+          direction="row"
+          margin="none"
+        >
+          Alibaba
+        </Heading>
+        <Heading
+          style={{ display: "flex", gap: "1em", alignItems: "center" }}
+          level="4"
+          icon={<Location color="plain" />}
+          margin="none"
+        >
+          Tradeindia
+        </Heading>
+        <Heading
+          style={{ display: "flex", gap: "1em", alignItems: "center" }}
+          level="4"
+          icon={<Location color="plain" />}
+          margin="none"
+        >
+          Globaltradeplaza
+        </Heading>
+        <Heading
+          style={{ display: "flex", gap: "1em", alignItems: "center" }}
+          level="4"
+          icon={<Location color="plain" />}
+          margin="none"
+        >
+          Amazon
+        </Heading>
       </Box>
     </Box>
   );

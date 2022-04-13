@@ -9,11 +9,15 @@ function ProductsIntro({ products }) {
       data-aos-delay="1000"
       data-aos-duration="2000"
       width="80%"
-      margin="5em 0"
+      margin="4em 0"
       pad="medium"
       align="center"
     >
-      <Heading level="2" color="neutral-1" margin="none">
+      <Heading
+        className="linear-header"
+        level="2"
+        margin="none"
+      >
         Products
       </Heading>
       <Box
