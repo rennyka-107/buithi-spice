@@ -23,6 +23,44 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <title>
+            Vietnamese leading exporter of Spices, Agro Products and Medical
+            Herbs - Vietnamese leading exporter of Spices, Agro Products and
+            Medical Herbs : Vietnamese leading exporter of Spices, Agro Products
+            and Medical Herbs
+          </title>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+          />
+          <meta
+            name="description"
+            content="Vietnamese leading exporter of Spices, Agro Products and Medical Herbs"
+          />
+          <meta property="og:locale" content="en_US" />
+          <meta property="og:type" content="website" />
+          <meta
+            property="og:title"
+            content="Vietnamese leading exporter of Spices, Agro Products and Medical Herbs - Vietnamese leading exporter of Spices, Agro Products and Medical Herbs"
+          />
+          <meta
+            property="og:description"
+            content="Vietnamese leading exporter of Spices, Agro Products and Medical Herbs"
+          />
+          <meta property="og:url" content="http://vnspice.com/" />
+          <meta
+            property="og:site_name"
+            content="Vietnamese leading exporter of Spices, Agro Products and Medical Herbs"
+          />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta
+            name="twitter:description"
+            content="Vietnamese leading exporter of Spices, Agro Products and Medical Herbs"
+          />
+          <meta
+            name="twitter:title"
+            content="Vietnamese leading exporter of Spices, Agro Products and Medical Herbs - Vietnamese leading exporter of Spices, Agro Products and Medical Herbs"
+          />
           <link
             rel="preload"
             href="/fonts/Pacifico-Regular.woff2"
