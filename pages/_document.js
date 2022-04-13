@@ -23,12 +23,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <title>
-            Vietnamese leading exporter of Spices, Agro Products and Medical
-            Herbs - Vietnamese leading exporter of Spices, Agro Products and
-            Medical Herbs : Vietnamese leading exporter of Spices, Agro Products
-            and Medical Herbs
-          </title>
+          
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
