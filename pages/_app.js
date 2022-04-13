@@ -84,10 +84,10 @@ function MyApp({ Component, pageProps }) {
     <WrapContext.Provider value={initialValue}>
       <Grommet plain>
         <Head>
-          <title>BuiThi Spice</title>
+          <title>BuiThi Agriculture</title>
           <link
             rel="icon"
-            href="/images/275063685_1005091196774697_8380784716009099865_n.png"
+            href="/images/logo.png"
           />
         </Head>
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" />
