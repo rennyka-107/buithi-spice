@@ -46,7 +46,7 @@ function ResponsiveHeader({ isDesktopOrLaptop, setShowSidebar }) {
   return (
     <Box direction="row" gap="large" align="center">
       <Apps
-        size="medium"
+        size="small"
         onClick={() => {
           _.isFunction(setShowSidebar) && setShowSidebar(true);
         }}

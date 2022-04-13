@@ -1,4 +1,4 @@
-import { Avatar, Button, Nav, Sidebar } from "grommet";
+import { Avatar, Button, Image, Nav, Sidebar } from "grommet";
 import React from "react";
 import { useRouter } from "next/router";
 
@@ -8,10 +8,17 @@ function SideBar() {
   return (
     <Sidebar
       data-aos="fade-right"
-      style={{ position: "absolute", zIndex: "999", alignItems: "center" }}
-      background="brand"
+      style={{
+        position: "absolute",
+        zIndex: "999",
+        alignItems: "center",
+        background: "#ff5f6d",
+        background: "-webkit-linear-gradient(to right, #ff5f6d, #ffc371)",
+        background: "linear-gradient(to right, #ff5f6d, #ffc371)",
+        color: "white",
+      }}
       header={
-        <Avatar src="/images/275063685_1005091196774697_8380784716009099865_n.png" />
+        <Image width="100" height="100" src="/images/logo.png" />
       }
     >
       <Nav pad="1em" gap="large" align="center">

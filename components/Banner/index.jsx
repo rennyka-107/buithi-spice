@@ -1,4 +1,4 @@
-import { Box, Carousel, Heading, Image, Paragraph, TextInput } from "grommet";
+import { Box, Carousel, Image, TextInput } from "grommet";
 import { Search } from "grommet-icons";
 import React from "react";
 
