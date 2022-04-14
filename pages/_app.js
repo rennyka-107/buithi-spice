@@ -85,6 +85,38 @@ function MyApp({ Component, pageProps }) {
       <Grommet plain>
         <Head>
           <title>BuiThi Agriculture</title>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+          />
+          <meta
+            name="description"
+            content="Vietnamese leading exporter of Spices, Agro Products and Medical Herbs"
+          />
+          <meta property="og:locale" content="en_US" />
+          <meta property="og:type" content="website" />
+          <meta
+            property="og:title"
+            content="Vietnamese leading exporter of Spices, Agro Products and Medical Herbs - Vietnamese leading exporter of Spices, Agro Products and Medical Herbs"
+          />
+          <meta
+            property="og:description"
+            content="Vietnamese leading exporter of Spices, Agro Products and Medical Herbs"
+          />
+          <meta property="og:url" content="http://vnspice.com/" />
+          <meta
+            property="og:site_name"
+            content="Vietnamese leading exporter of Spices, Agro Products and Medical Herbs"
+          />
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta
+            name="twitter:description"
+            content="Vietnamese leading exporter of Spices, Agro Products and Medical Herbs"
+          />
+          <meta
+            name="twitter:title"
+            content="Vietnamese leading exporter of Spices, Agro Products and Medical Herbs - Vietnamese leading exporter of Spices, Agro Products and Medical Herbs"
+          />
           <link rel="icon" href="/images/logo.png" />
         </Head>
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" />

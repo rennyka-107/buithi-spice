@@ -18,7 +18,7 @@ function SideBar() {
         color: "white",
       }}
       header={
-        <Image width="100" height="100" src="/images/logo.png" />
+        <Image width="100" height="100" src="/images/logo-footer.png" />
       }
     >
       <Nav pad="1em" gap="large" align="center">

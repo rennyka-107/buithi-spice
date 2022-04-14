@@ -25,7 +25,7 @@ function FooterComponent() {
       justify={isDesktopOrLaptop ? "around" : "center"}
     >
       <Box>
-        <Image width="200" height="200" src="/images/logo.png" />
+        <Image width="200" height="200" src="/images/logo-footer.png" />
       </Box>
       <Box gap="small">
         <Heading alignSelf="center" level="3" style={{ fontWeight: "bold" }}>

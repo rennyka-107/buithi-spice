@@ -9,37 +9,39 @@ function ResponsiveHeader({ isDesktopOrLaptop, setShowSidebar }) {
   const router = useRouter();
   if (isDesktopOrLaptop) {
     return (
-      <Box direction="row" gap="large">
+      <Box width="100%" direction="row" justify="around">
         <Image
-          src="/images/logo.png"
-          width="80"
+          src="/images/logo-header.png"
+          width="300"
           height="80"
           alt="logo example"
         />
-        <Button
-          onClick={() => {
-            router.push("/");
-          }}
-          plain
-          label="Home"
-          hoverIndicator
-        />
-        <Button
-          // onClick={() => {
-          //   router.push("/products/123");
-          // }}
-          plain
-          label="Products"
-          hoverIndicator
-        />
-        <Button
-          onClick={() => {
-            router.push("/about-us");
-          }}
-          plain
-          label="About us"
-          hoverIndicator
-        />
+        <Box style={{ flex: ".8 0"}} justify="end" direction="row" gap="large">
+          <Button
+            onClick={() => {
+              router.push("/");
+            }}
+            plain
+            label="Home"
+            hoverIndicator
+          />
+          <Button
+            // onClick={() => {
+            //   router.push("/products/123");
+            // }}
+            plain
+            label="Products"
+            hoverIndicator
+          />
+          <Button
+            onClick={() => {
+              router.push("/about-us");
+            }}
+            plain
+            label="About us"
+            hoverIndicator
+          />
+        </Box>
       </Box>
     );
   }

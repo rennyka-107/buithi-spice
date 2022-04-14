@@ -10,9 +10,14 @@ function ViewProduct({ imageUrl = "", title = "", content = "", ...props }) {
   });
   return (
     <>
-        <Heading color="neutral-1" alignSelf="center" margin={isDesktopOrLaptop ? "0 0 1em 0" : "1em 0"} level="2">
-          {title}
-        </Heading>
+      <Heading
+        color="#ff5f6d"
+        alignSelf="center"
+        margin={isDesktopOrLaptop ? "1em 0" : "1em 0"}
+        level="2"
+      >
+        {title}
+      </Heading>
       <Box
         pad="medium"
         direction={isDesktopOrLaptop ? "row" : "column"}
@@ -27,7 +32,7 @@ function ViewProduct({ imageUrl = "", title = "", content = "", ...props }) {
             height="500"
           />
         </Box>
-        <Box width={isDesktopOrLaptop ? "60%" : "95%"} align="center">
+        <Box width={isDesktopOrLaptop ? "60%" : "95%"}>
           {parse(content)}
           {/* <Box pad="medium" direction="row" justify="center" gap="1em">
             <Heading alignSelf="center" level="5" margin="none">

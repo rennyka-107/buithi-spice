@@ -28,8 +28,6 @@ function HeaderComponent({ setShowSidebar }) {
         setShowSidebar={setShowSidebar}
         isDesktopOrLaptop={isDesktopOrLaptop}
       />
-      <Box width="medium">
-      </Box>
     </Box>
   );
 }
