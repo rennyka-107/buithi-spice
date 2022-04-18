@@ -7,8 +7,7 @@ function CardPostIntro({
   description,
   createdAt,
   imageUrl,
-  id,
-  ...props
+  slug,
 }) {
   const convertDay = dayjs(createdAt, "DD-MM-YYYY").toString();
   return (
@@ -20,7 +19,7 @@ function CardPostIntro({
         <span className="blog-slider__code">{convertDay}</span>
         <div className="blog-slider__title">{title}</div>
         <div className="blog-slider__text">{description}</div>
-        <Link passHref href={`/posts/${id}`}>
+        <Link passHref href={`/posts/${slug}`}>
           <a className="blog-slider__button">READ MORE</a>
         </Link>
       </div>

@@ -5,15 +5,16 @@ const PRODUCTS = "/products";
 const GET_PRODUCTS_BY_CATEGORY = "/products/by-category";
 
 const ProductApi = {
-  getProductById(id) {
-    return axiosClient.get(`${PRODUCTS}/${id}`);
+  getProductBySlug(slug) {
+    return axiosClient.get(`${PRODUCTS}/by-slug/${slug}`);
   },
   getAllProducts({ page = 1, size = 10 }) {
     return axiosClient.get(`${PRODUCTS}?page=${page}&size=${size}`);
   },
-  getProductsByCategory(categoryId, { page = 1, size = 10 }) {
-    return axiosClient.get(
-      `${GET_PRODUCTS_BY_CATEGORY}/${categoryId}?page=${page}&size=${size}`
+  getProductsByCategory({ page = 1, size = 10, ids = [] }) {
+    return axiosClient.post(
+      `${GET_PRODUCTS_BY_CATEGORY}?page=${page}&size=${size}`,
+      { ids }
     );
   },
   createNewProduct(data) {

@@ -1,11 +1,7 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import parse from "html-react-parser";
+import React, { useEffect, useRef, useState } from "react";
 import { isValidFileImage } from "helpers/validate";
-import { Controller, useForm } from "react-hook-form";
-import ProductApi from "services/products";
-import { convertToSlug } from "helpers";
+import {  useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-import { WrapContext } from "pages/_app";
 import withAuth from "hoc/withAuth";
 import CategoryApi from "services/categories";
 import { toast } from "react-toastify";
@@ -22,45 +18,33 @@ import {
   Image,
   TextInput,
 } from "grommet";
-import CategoriesDropDown from "components/CategoriesDropDown";
 import { useMediaQuery } from "react-responsive";
-import CkEditorComponent from "components/CkEditorComponent";
-import PostPreview from "components/PostPreview";
 
-export default withAuth(function CreateProduct() {
+export default withAuth(function CreateCategory() {
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 900px)",
   });
   const {
     register,
     handleSubmit,
-    watch,
-    control,
     formState: { errors },
   } = useForm();
   const router = useRouter();
-  const [editorLoaded, setEditorLoaded] = useState(false);
-  const [content, setContent] = useState("");
-  const [loading, setLoading] = useState(false);
   const [errorFile, setErrorFile] = useState("");
+  const [loading, setLoading] = useState(false);
   const [file, setFile] = useState(null);
   const [image, setImage] = useState("");
-  const [categories, setCategories] = useState([]);
-  const [openPreview, setOpenPreview] = useState(false);
   const inputRef = useRef(null);
 
   async function onSubmit(data) {
     setLoading(true);
-    ProductApi.createNewProduct({
-      slug: convertToSlug(data.title),
+    CategoryApi.createNewCategory({
       ...data,
-      category_id: data?.category?.id,
       image,
-      content,
     })
       .then((result) => {
-        if (result.data && result.data.product) {
-          router.push(`${result.data.product.id}`);
+        if (result.data) {
+          router.push("/products");
         }
       })
       .catch((err) => {
@@ -91,20 +75,6 @@ export default withAuth(function CreateProduct() {
     };
   });
 
-  useEffect(() => {
-    CategoryApi.getAllCategories({
-      page: 1,
-      size: 5,
-    })
-      .then((res) => {
-        if (res.data && res.data.status) {
-          setCategories(res.data.categories);
-        }
-      })
-      .catch((err) => console.log(err));
-    setEditorLoaded(true);
-  }, []);
-
   return (
     <Box pad="3em 0" align="center">
       <Card height="auto" width="75%" background="light-1">
@@ -116,7 +86,7 @@ export default withAuth(function CreateProduct() {
               </div>
             )}
             <Heading level="3" style={{ textTransform: "uppercase" }}>
-              Create a new product
+              Create a new category
             </Heading>
           </Box>
         </CardHeader>
@@ -127,12 +97,12 @@ export default withAuth(function CreateProduct() {
               onReset={() => console.log(123)}
               onSubmit={handleSubmit(onSubmit)}
             >
-              <FormField name="title" label="Title">
+              <FormField name="name" label="Name">
                 <TextInput
-                  {...register("title", { required: true })}
-                  name="title"
+                  {...register("name", { required: true })}
+                  name="name"
                 />
-                {errors.title && (
+                {errors.name && (
                   <span style={{ color: "red" }}>This field is required</span>
                 )}
               </FormField>
@@ -145,46 +115,6 @@ export default withAuth(function CreateProduct() {
                   <span style={{ color: "red" }}>This field is required</span>
                 )}
               </FormField>
-              <Box direction="column">
-                <Box direction="row" justify="between">
-                  <Box width="50%">
-                    <Controller
-                      render={({ field }) => (
-                        <CategoriesDropDown
-                          onChange={field.onChange}
-                          categories={categories}
-                        />
-                      )}
-                      name="category"
-                      control={control}
-                      defaultValue=""
-                      rules={{
-                        required: true,
-                      }}
-                    />
-                  </Box>
-                  {watch("category") ? (
-                    <Box
-                      width={isDesktopOrLaptop ? "40%" : "50%"}
-                      align="center"
-                      gap={isDesktopOrLaptop ? "1em" : ""}
-                      direction={isDesktopOrLaptop ? "row" : "column"}
-                    >
-                      <Image
-                        width="100"
-                        height="100"
-                        src={watch("category").imageUrl}
-                      />
-                      <Heading pad="0" margin="0" level="2">
-                        {watch("category").name}
-                      </Heading>
-                    </Box>
-                  ) : null}
-                </Box>
-                {errors.category && (
-                  <span style={{ color: "red" }}>This field is required</span>
-                )}
-              </Box>
               <Box
                 pad="1em .5em 0 .5em"
                 gap="1em"
@@ -232,35 +162,14 @@ export default withAuth(function CreateProduct() {
                 />
               </Box>
               <p style={{ color: "red" }}>{errorFile}</p>
-              <FormField>
-                <CkEditorComponent
-                  onChange={(data) => {
-                    setContent(data);
-                  }}
-                  data={content}
-                  editorLoaded={editorLoaded}
-                />
-              </FormField>
               <Box
                 pad="1em .5em"
                 direction={isDesktopOrLaptop ? "row" : "column"}
                 gap="medium"
               >
-                <Button
-                  type="button"
-                  label="Preview"
-                  onClick={() => {
-                    setOpenPreview(true);
-                  }}
-                />
                 <Button type="submit" primary label="Submit" />
               </Box>
             </Form>
-            <PostPreview
-              content={parse(content)}
-              open={openPreview}
-              setOpen={setOpenPreview}
-            />
           </Box>
         </CardBody>
       </Card>

@@ -26,9 +26,9 @@ function ResponsiveHeader({ isDesktopOrLaptop, setShowSidebar }) {
             hoverIndicator
           />
           <Button
-            // onClick={() => {
-            //   router.push("/products/123");
-            // }}
+            onClick={() => {
+              router.push("/products");
+            }}
             plain
             label="Products"
             hoverIndicator

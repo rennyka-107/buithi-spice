@@ -1,6 +1,5 @@
 import { Box, Heading, Image, Tag } from "grommet";
 import React from "react";
-import { useMediaQuery } from "react-responsive";
 import PostApi from "services/posts";
 import parse from "html-react-parser";
 
@@ -17,10 +16,10 @@ function ViewPost({ imageUrl, title, content, ...props }) {
           />
         </Box>
         <Box width="80%" align="center">
-          <Heading color="neutral-1" margin="1em 0" level="2">
+          <Heading color="#ff5f6d" margin="1em 0" level="2">
             {title}
           </Heading>
-          {parse(content)}
+          <Box width="100%">{parse(content)}</Box>
           {/* <Box pad="medium" direction="row" justify="center" gap="1em">
             <Heading alignSelf="center" level="5" margin="none">
               Tags:
@@ -43,7 +42,7 @@ export async function getServerSideProps({ params }) {
     const { slug } = params;
     const {
       data: { post },
-    } = await PostApi.getPostById(slug);
+    } = await PostApi.getPostBySlug(slug);
     return {
       props: {
         ...post,

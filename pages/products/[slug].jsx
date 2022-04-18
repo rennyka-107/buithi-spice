@@ -56,7 +56,7 @@ export async function getServerSideProps({ params }) {
     const { slug } = params;
     const {
       data: { product },
-    } = await ProductApi.getProductById(slug);
+    } = await ProductApi.getProductBySlug(slug);
     return {
       props: {
         ...product,

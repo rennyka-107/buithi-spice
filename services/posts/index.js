@@ -5,8 +5,8 @@ const POSTS = "/posts";
 const GET_POSTS_BY_CATEGORY = "/posts/by-category";
 
 const PostApi = {
-  getPostById(id) {
-    return axiosClient.get(`${POSTS}/${id}`);
+  getPostBySlug(slug) {
+    return axiosClient.get(`${POSTS}/by-slug/${slug}`);
   },
   getAllPosts({ page = 1, size = 10 }) {
     return axiosClient.get(`${POSTS}?page=${page}&size=${size}`);
