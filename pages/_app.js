@@ -22,6 +22,24 @@ export const initialAuth = {
   accessToken: null,
 };
 
+const theme = {
+  tab: {
+    extend: {
+      border: "none",
+    },
+    active: {
+      color: "#1fc895",
+    },
+    color: "#ff5f6d",
+    hover: {
+      color: "#1fc895"
+    },
+    disabled: {
+      color: "#e9b2b7"
+    }
+  },
+};
+
 function MyApp({ Component, pageProps }) {
   const mounted = useMounted();
   const [basePageLoading, setBasePageLoading] = useState(false);
@@ -82,7 +100,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <WrapContext.Provider value={initialValue}>
-      <Grommet plain>
+      <Grommet theme={theme}>
         <Head>
           <title>BuiThi Agriculture</title>
           <meta

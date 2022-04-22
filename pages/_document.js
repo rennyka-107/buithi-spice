@@ -27,7 +27,7 @@ class MyDocument extends Document {
             rel="preload"
             href="/fonts/Pacifico-Regular.woff2"
             as="font"
-            crossOrigin=""
+            crossOrigin
           />
           <link
             rel="preconnect"

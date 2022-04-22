@@ -41,7 +41,7 @@ function Banner() {
         data-aos="fade-left"
         data-aos-delay="1000"
         data-aos-duration="2000"
-        style={{ position: "absolute", top: "30%" }}
+        style={{ position: "absolute", top: "40%" }}
         width="100%"
         align="center"
       >
@@ -49,26 +49,12 @@ function Banner() {
           Welcome to{" "}
           <span
             style={{
-              color: "#ffc371",
+              color: "#ff5f6d",
             }}
           >
             BuiThi Agriculture
           </span>
         </p>
-        <Box width="50%" pad="large">
-          <TextInput
-            icon={<Search color="black" />}
-            placeholder="Search somethings..."
-            value=""
-            size="small"
-            style={{
-              background: "white",
-              border: "white",
-              borderRadius: "50rem",
-            }}
-            // onChange={(event) => setValue(event.target.value)}
-          />
-        </Box>
       </Box>
     </Box>
   );

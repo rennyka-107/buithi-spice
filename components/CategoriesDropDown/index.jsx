@@ -11,5 +11,5 @@ export default function CategoriesDropDown({ categories, onChange }) {
     ),
     onClick: () => onChange(cate),
   }));
-  return <Menu label="Categories" items={formatCategories} />;
+  return <Menu label={<span style={{ color: "#ff5f6d"}} >Categories</span>} items={formatCategories} />;
 }

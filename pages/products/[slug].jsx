@@ -34,15 +34,6 @@ function ViewProduct({ imageUrl = "", title = "", content = "", ...props }) {
         </Box>
         <Box width={isDesktopOrLaptop ? "60%" : "95%"}>
           {parse(content)}
-          {/* <Box pad="medium" direction="row" justify="center" gap="1em">
-            <Heading alignSelf="center" level="5" margin="none">
-              Tags:
-            </Heading>
-            <Tag value="value" />
-            <Tag value="value" />
-            <Tag value="value" />
-            <Tag value="value" />
-          </Box> */}
         </Box>
       </Box>
     </>

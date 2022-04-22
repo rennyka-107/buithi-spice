@@ -26,6 +26,18 @@ const ProductApi = {
       headers: { "Content-Type": "multipart/form-data" },
     });
   },
+  updateProduct(id, data) {
+    let bodyFormData = new FormData();
+    for (const property in convertCamelCaseKeysToSnakeCase(data)) {
+      bodyFormData.append(property, data[property]);
+    }
+    return axiosClient.post(`${PRODUCTS}/${id}`, bodyFormData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+  },
+  deleteProduct(id) {
+    return axiosClient.delete(`${PRODUCTS}/${id}`);
+  },
 };
 
 export default ProductApi;

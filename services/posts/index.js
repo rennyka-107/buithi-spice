@@ -25,6 +25,18 @@ const PostApi = {
       headers: { "Content-Type": "multipart/form-data" },
     });
   },
+  updatePost(id, data) {
+    let bodyFormData = new FormData();
+    for (const property in convertCamelCaseKeysToSnakeCase(data)) {
+      bodyFormData.append(property, data[property]);
+    }
+    return axiosClient.post(`${POSTS}/${id}`, bodyFormData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+  },
+  deletePost(id) {
+    return axiosClient.delete(`${POSTS}/${id}`);
+  },
 };
 
 export default PostApi;
