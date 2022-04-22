@@ -63,7 +63,7 @@ export default withAuth(function CreatePost() {
     })
       .then((result) => {
         if (result.data && result.data.post) {
-          router.push(`${result.data.post.id}`);
+          router.push(`${result.data.post.slug}`);
         }
       })
       .catch((err) => {

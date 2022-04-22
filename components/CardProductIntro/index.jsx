@@ -6,7 +6,7 @@ function CardProductIntro({ title, description, imageUrl, slug }) {
   const router = useRouter();
   return (
     <Card
-      style={{ boxShadow: "0px 14px 80px rgba(24, 25, 26, 0.5)" }}
+      style={{ boxShadow: "0px 14px 80px rgba(24, 25, 26, 0.5)", height: "auto" }}
       onClick={() => router.push(`/products/${slug}`)}
       height="medium"
       width="350px"

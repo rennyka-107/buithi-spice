@@ -15,6 +15,7 @@ import BasePageLoading from "components/BasePageLoading";
 import SideBar from "components/SideBar";
 import { useMediaQuery } from "react-responsive";
 import useLocalStorage from "hook/useLocalStorage";
+import { CaretDown, CaretNext } from "grommet-icons";
 
 export const WrapContext = createContext();
 export const initialAuth = {
@@ -32,11 +33,11 @@ const theme = {
     },
     color: "#ff5f6d",
     hover: {
-      color: "#1fc895"
+      color: "#1fc895",
     },
     disabled: {
-      color: "#e9b2b7"
-    }
+      color: "#e9b2b7",
+    },
   },
 };
 

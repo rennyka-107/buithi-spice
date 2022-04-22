@@ -110,7 +110,7 @@ function AdminDashBoard() {
       if (activeTab === 2) {
         result = await CategoryApi.getAllCategories({ page, size });
       }
-      if (result.data && result.data.status) {
+      if (result.data) {
         let data;
         switch (activeTab) {
           case 0:
@@ -180,146 +180,180 @@ function AdminDashBoard() {
   }
 
   function renderBody() {
-    if (objectData.data) {
-      if (objectData.activeTab !== 2) {
-        return objectData.data.map((ch, idx) => (
-          <TableRow key={idx + "row"}>
-            <TableCell
-              style={{ color: "#ff5f6d" }}
-              background="white"
-              scope="row"
-            >
-              {ch.title}
-            </TableCell>
-            <TableCell
-              style={{ color: "#ff5f6d" }}
-              background="white"
-              scope="row"
-            >
-              {ch.description}
-            </TableCell>
-            <TableCell
-              style={{ color: "#ff5f6d" }}
-              background="white"
-              scope="row"
-            >
-              <Image width="50px" height="50px" src={ch.imageUrl} />
-            </TableCell>
-            <TableCell
-              style={{ color: "#ff5f6d" }}
-              background="white"
-              scope="row"
-            >
-              {dayjs(ch.createdAt, "DD-MM-YYYY").toString()}
-            </TableCell>
-            <TableCell
-              style={{ color: "#ff5f6d" }}
-              background="white"
-              scope="row"
-            >
-              {ch.slug}
-            </TableCell>
-            <TableCell
-              style={{ color: "#ff5f6d" }}
-              background="white"
-              scope="row"
-            >
-              {ch.category}
-            </TableCell>
-            <TableCell background="white">
-              <Box direction="row" gap=".5em">
-                <Button
-                  style={{ width: "33%" }}
-                  hoverIndicator
-                  color="status-ok"
-                  onClick={() =>
-                    router.push(
-                      `/${objectData.activeTab === 0 ? "products" : "posts"}/${
-                        ch.slug
-                      }`
-                    )
-                  }
-                >
-                  Detail
-                </Button>
-                <Button
-                  style={{ width: "33%" }}
-                  hoverIndicator
-                  color="neutral-3"
-                  onClick={() =>
-                    router.push(
-                      `/${
-                        objectData.activeTab === 0 ? "products" : "posts"
-                      }/edit/${ch.slug}`
-                    )
-                  }
-                >
-                  Edit
-                </Button>
-                <Button
-                  onClick={() =>
-                    callDeleteApi(
-                      objectData.activeTab === 0 ? "product" : "post",
-                      ch.id
-                    )
-                  }
-                  style={{ width: "33%" }}
-                  hoverIndicator
-                  color="red"
-                >
-                  Delete
-                </Button>
-              </Box>
-            </TableCell>
-          </TableRow>
-        ));
-      } else {
-        return objectData.data.map((ch, idx) => (
-          <TableRow key={idx + "row"}>
-            <TableCell
-              style={{ color: "#ff5f6d" }}
-              background="white"
-              scope="row"
-            >
-              {ch.name}
-            </TableCell>
-            <TableCell
-              style={{ color: "#ff5f6d" }}
-              background="white"
-              scope="row"
-            >
-              {ch.description}
-            </TableCell>
-            <TableCell
-              style={{ color: "#ff5f6d" }}
-              background="white"
-              scope="row"
-            >
-              <Image width="50px" height="50px" src={ch.imageUrl} />
-            </TableCell>
-            <TableCell background="white">
-              <Box direction="row" gap=".5em">
-                <Button
-                  style={{ width: "33%" }}
-                  hoverIndicator
-                  color="neutral-3"
-                  onClick={() => router.push(`/categories/edit/${ch.id}`)}
-                >
-                  Edit
-                </Button>
-                <Button
-                  onClick={() => callDeleteApi("category", ch.id)}
-                  style={{ width: "33%" }}
-                  hoverIndicator
-                  color="red"
-                >
-                  Delete
-                </Button>
-              </Box>
-            </TableCell>
-          </TableRow>
-        ));
-      }
+    if (objectData.activeTab !== 2) {
+      return objectData.data.map((ch, idx) => (
+        <TableRow style={{ height: "auto" }} key={idx + "row"}>
+          <TableCell
+            style={{
+              color: "#ff5f6d",
+              maxWidth: "500px",
+              wordBreak: "break-word",
+            }}
+            background="white"
+            scope="row"
+          >
+            {ch.title}
+          </TableCell>
+          <TableCell
+            style={{
+              color: "#ff5f6d",
+              maxWidth: "500px",
+              wordBreak: "break-word",
+            }}
+            background="white"
+            scope="row"
+          >
+            {ch.description}
+          </TableCell>
+          <TableCell
+            style={{
+              color: "#ff5f6d",
+              maxWidth: "500px",
+              wordBreak: "break-word",
+            }}
+            background="white"
+            scope="row"
+          >
+            <Image width="50px" height="50px" src={ch.imageUrl} />
+          </TableCell>
+          <TableCell
+            style={{
+              color: "#ff5f6d",
+              maxWidth: "500px",
+              wordBreak: "break-word",
+            }}
+            background="white"
+            scope="row"
+          >
+            {dayjs(ch.createdAt, "DD-MM-YYYY").toString()}
+          </TableCell>
+          <TableCell
+            style={{
+              color: "#ff5f6d",
+              maxWidth: "500px",
+              wordBreak: "break-word",
+            }}
+            background="white"
+            scope="row"
+          >
+            {ch.slug}
+          </TableCell>
+          <TableCell
+            style={{
+              color: "#ff5f6d",
+              maxWidth: "500px",
+              wordBreak: "break-word",
+            }}
+            background="white"
+            scope="row"
+          >
+            {ch.category}
+          </TableCell>
+          <TableCell background="white">
+            <Box direction="row" gap=".5em">
+              <Button
+                style={{ width: "33%" }}
+                hoverIndicator
+                color="status-ok"
+                onClick={() =>
+                  router.push(
+                    `/${objectData.activeTab === 0 ? "products" : "posts"}/${
+                      ch.slug
+                    }`
+                  )
+                }
+              >
+                Detail
+              </Button>
+              <Button
+                style={{ width: "33%" }}
+                hoverIndicator
+                color="neutral-3"
+                onClick={() =>
+                  router.push(
+                    `/${
+                      objectData.activeTab === 0 ? "products" : "posts"
+                    }/edit/${ch.slug}`
+                  )
+                }
+              >
+                Edit
+              </Button>
+              <Button
+                onClick={() =>
+                  callDeleteApi(
+                    objectData.activeTab === 0 ? "product" : "post",
+                    ch.id
+                  )
+                }
+                style={{ width: "33%" }}
+                hoverIndicator
+                color="red"
+              >
+                Delete
+              </Button>
+            </Box>
+          </TableCell>
+        </TableRow>
+      ));
+    } else {
+      return objectData.data.map((ch, idx) => (
+        <TableRow key={idx + "row"}>
+          <TableCell
+            style={{
+              color: "#ff5f6d",
+              maxWidth: "500px",
+              wordBreak: "break-word",
+            }}
+            background="white"
+            scope="row"
+          >
+            {ch.name}
+          </TableCell>
+          <TableCell
+            style={{
+              color: "#ff5f6d",
+              maxWidth: "500px",
+              wordBreak: "break-word",
+            }}
+            background="white"
+            scope="row"
+          >
+            {ch.description}
+          </TableCell>
+          <TableCell
+            style={{
+              color: "#ff5f6d",
+              maxWidth: "500px",
+              wordBreak: "break-word",
+            }}
+            background="white"
+            scope="row"
+          >
+            <Image width="50px" height="50px" src={ch.imageUrl} />
+          </TableCell>
+          <TableCell background="white">
+            <Box direction="row" gap=".5em">
+              <Button
+                style={{ width: "33%" }}
+                hoverIndicator
+                color="neutral-3"
+                onClick={() => router.push(`/categories/edit/${ch.id}`)}
+              >
+                Edit
+              </Button>
+              <Button
+                onClick={() => callDeleteApi("category", ch.id)}
+                style={{ width: "33%" }}
+                hoverIndicator
+                color="red"
+              >
+                Delete
+              </Button>
+            </Box>
+          </TableCell>
+        </TableRow>
+      ));
     }
   }
 
@@ -348,7 +382,31 @@ function AdminDashBoard() {
           icon={el.icon}
           title={el.title}
         >
-          <Box pad="3em" direction="row" justify="center">
+          <Box align="center" pad="2em  ">
+            <Button
+              hoverIndicator
+              color="#ff5f6d"
+              onClick={() =>
+                router.push(
+                  `/${
+                    objectData.activeTab === 0
+                      ? "products"
+                      : objectData.activeTab === 1
+                      ? "posts"
+                      : "categories"
+                  }/create`
+                )
+              }
+              label={`Create new ${
+                objectData.activeTab === 0
+                  ? "products"
+                  : objectData.activeTab === 1
+                  ? "posts"
+                  : "categories"
+              }`}
+            />
+          </Box>
+          <Box pad="1em 3em" direction="row" justify="center">
             {objectData.loading ? (
               <Spinner size="xlarge" />
             ) : (
@@ -356,7 +414,6 @@ function AdminDashBoard() {
                 style={{
                   display: "block",
                   overflowX: "auto",
-                  whiteSpace: "nowrap",
                 }}
               >
                 <TableHeader color="brand">

@@ -2,8 +2,13 @@ import { Box, Heading, Image, Tag } from "grommet";
 import React from "react";
 import PostApi from "services/posts";
 import parse from "html-react-parser";
+import BasePageLoading from "components/BasePageLoading";
 
-function ViewPost({ imageUrl, title, content, ...props }) {
+function ViewPost({ imageUrl, title, content, error, ...props }) {
+  if (!isEmpty(error)) {
+    router.push("/");
+    return <BasePageLoading />;
+  }
   return (
     <>
       <Box pad="medium" direction={"column"} align="center" justify="around">
@@ -20,15 +25,6 @@ function ViewPost({ imageUrl, title, content, ...props }) {
             {title}
           </Heading>
           <Box width="100%">{parse(content)}</Box>
-          {/* <Box pad="medium" direction="row" justify="center" gap="1em">
-            <Heading alignSelf="center" level="5" margin="none">
-              Tags:
-            </Heading>
-            <Tag value="value" />
-            <Tag value="value" />
-            <Tag value="value" />
-            <Tag value="value" />
-          </Box> */}
         </Box>
       </Box>
     </>

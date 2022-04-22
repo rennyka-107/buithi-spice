@@ -11,9 +11,10 @@ const PostApi = {
   getAllPosts({ page = 1, size = 10 }) {
     return axiosClient.get(`${POSTS}?page=${page}&size=${size}`);
   },
-  getPostsByCategory(categoryId, { page = 1, size = 10 }) {
-    return axiosClient.get(
-      `${GET_POSTS_BY_CATEGORY}/${categoryId}?page=${page}&size=${size}`
+  getPostsByCategory({ page = 1, size = 10, ids = [] }) {
+    return axiosClient.post(
+      `${GET_POSTS_BY_CATEGORY}?page=${page}&size=${size}`,
+      { ids }
     );
   },
   createNewPost(data) {
