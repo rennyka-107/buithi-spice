@@ -1,5 +1,5 @@
-import { Box, Carousel, Image, TextInput } from "grommet";
-import { Search } from "grommet-icons";
+import { Box, Carousel, Heading, TextInput } from "grommet";
+import Image from "next/image";
 import React from "react";
 
 function Banner() {
@@ -8,33 +8,39 @@ function Banner() {
       data-aos="flip-left"
       data-aos-delay="1000"
       data-aos-duration="2000"
-      width="100%"
+      width="100vw"
       style={{ backgroundSize: "600px", position: "relative" }}
       overflow="hidden"
     >
       <Carousel
         controls={false}
-        style={{ width: "100%", margin: "auto", opacity: ".65" }}
+        style={{ width: "100vw", margin: "auto", opacity: ".65" }}
         fill
         play={5000}
       >
         <Image
-          width="100%"
+          unoptimized
+          priority
+          width="100vw"
           height="600px"
           alt="banner1 example"
-          src="images/banner-1.jpg"
+          src="/images/banner-1.jpg"
         />
         <Image
-          width="100%"
+          unoptimized
+          priority
+          width="100vw"
           height="600px"
           alt="banner2 example"
-          src="images/banner-2.jpg"
+          src="/images/banner-2.jpg"
         />
         <Image
-          width="100%"
+          unoptimized
+          priority
+          width="100vw"
           height="600px"
           alt="banner3 example"
-          src="images/banner-3.jpg"
+          src="/images/banner-3.jpg"
         />
       </Carousel>
       <Box
@@ -45,7 +51,7 @@ function Banner() {
         width="100%"
         align="center"
       >
-        <p style={{ textAlign: "center", fontSize: "70px", color: "white" }}>
+        <Heading level="1" color="white" style={{ textAlign: "center" }}>
           Welcome to{" "}
           <span
             style={{
@@ -54,7 +60,7 @@ function Banner() {
           >
             BuiThi Agriculture
           </span>
-        </p>
+        </Heading>
       </Box>
     </Box>
   );

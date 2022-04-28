@@ -137,7 +137,6 @@ function AdminDashBoard() {
       case 0:
         return HeaderRender.products.map((hr, idx) => (
           <TableCell
-            align="center"
             key={idx + "header"}
             scope="col"
             background="#ff5f6d"
@@ -155,7 +154,6 @@ function AdminDashBoard() {
               color: "white",
             }}
             background="#ff5f6d"
-            align="center"
             key={idx + "header"}
             scope="col"
           >
@@ -169,7 +167,6 @@ function AdminDashBoard() {
               color: "white",
             }}
             background="#ff5f6d"
-            align="center"
             key={idx + "header"}
             scope="col"
           >
@@ -182,8 +179,12 @@ function AdminDashBoard() {
   function renderBody() {
     if (objectData.activeTab !== 2) {
       return objectData.data.map((ch, idx) => (
-        <TableRow style={{ height: "auto" }} key={idx + "row"}>
+        <TableRow
+          style={{ height: "auto", verticalAlign: "top" }}
+          key={idx + "row"}
+        >
           <TableCell
+            border
             style={{
               color: "#ff5f6d",
               maxWidth: "500px",
@@ -195,6 +196,7 @@ function AdminDashBoard() {
             {ch.title}
           </TableCell>
           <TableCell
+            border
             style={{
               color: "#ff5f6d",
               maxWidth: "500px",
@@ -206,6 +208,7 @@ function AdminDashBoard() {
             {ch.description}
           </TableCell>
           <TableCell
+            border
             style={{
               color: "#ff5f6d",
               maxWidth: "500px",
@@ -217,6 +220,7 @@ function AdminDashBoard() {
             <Image width="50px" height="50px" src={ch.imageUrl} />
           </TableCell>
           <TableCell
+            border
             style={{
               color: "#ff5f6d",
               maxWidth: "500px",
@@ -228,6 +232,7 @@ function AdminDashBoard() {
             {dayjs(ch.createdAt, "DD-MM-YYYY").toString()}
           </TableCell>
           <TableCell
+            border
             style={{
               color: "#ff5f6d",
               maxWidth: "500px",
@@ -239,6 +244,7 @@ function AdminDashBoard() {
             {ch.slug}
           </TableCell>
           <TableCell
+            border
             style={{
               color: "#ff5f6d",
               maxWidth: "500px",
@@ -249,7 +255,7 @@ function AdminDashBoard() {
           >
             {ch.category}
           </TableCell>
-          <TableCell background="white">
+          <TableCell border background="white">
             <Box direction="row" gap=".5em">
               <Button
                 style={{ width: "33%" }}
@@ -298,8 +304,9 @@ function AdminDashBoard() {
       ));
     } else {
       return objectData.data.map((ch, idx) => (
-        <TableRow key={idx + "row"}>
+        <TableRow style={{ verticalAlign: "top" }} key={idx + "row"}>
           <TableCell
+            border
             style={{
               color: "#ff5f6d",
               maxWidth: "500px",
@@ -311,6 +318,7 @@ function AdminDashBoard() {
             {ch.name}
           </TableCell>
           <TableCell
+            border
             style={{
               color: "#ff5f6d",
               maxWidth: "500px",
@@ -322,6 +330,7 @@ function AdminDashBoard() {
             {ch.description}
           </TableCell>
           <TableCell
+            border
             style={{
               color: "#ff5f6d",
               maxWidth: "500px",
@@ -332,7 +341,7 @@ function AdminDashBoard() {
           >
             <Image width="50px" height="50px" src={ch.imageUrl} />
           </TableCell>
-          <TableCell background="white">
+          <TableCell border background="white">
             <Box direction="row" gap=".5em">
               <Button
                 style={{ width: "33%" }}

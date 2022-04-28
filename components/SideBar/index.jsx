@@ -1,7 +1,8 @@
-import { Box, Button, Image, Nav, Sidebar } from "grommet";
+import { Box, Button, Nav, Sidebar } from "grommet";
 import React, { useContext } from "react";
 import { useRouter } from "next/router";
 import { WrapContext } from "pages/_app";
+import Image from "next/image";
 
 function SideBar() {
   const router = useRouter();

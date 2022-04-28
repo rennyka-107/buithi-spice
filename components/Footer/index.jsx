@@ -1,7 +1,7 @@
 import React from "react";
-import { Button, Box, Heading, WorldMap, Avatar } from "grommet";
+import { Box, Heading } from "grommet";
 import Image from "next/image";
-import { Amazon, Location, MailOption, Phone } from "grommet-icons";
+import { Location, MailOption, Phone } from "grommet-icons";
 import { useMediaQuery } from "react-responsive";
 
 function FooterComponent() {
@@ -25,7 +25,7 @@ function FooterComponent() {
       justify={isDesktopOrLaptop ? "around" : "center"}
     >
       <Box>
-        <Image width="200" height="200" src="/images/logo-footer.png" />
+        <Image unoptimized loading="lazy" width="200" height="200" alt="example logo footer" src="/images/logo-footer.png" />
       </Box>
       <Box gap="small">
         <Heading alignSelf="center" level="3" style={{ fontWeight: "bold" }}>

@@ -39,6 +39,7 @@ const theme = {
       color: "#e9b2b7",
     },
   },
+  
 };
 
 function MyApp({ Component, pageProps }) {

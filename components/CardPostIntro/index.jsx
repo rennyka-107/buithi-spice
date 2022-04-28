@@ -1,4 +1,5 @@
 import dayjs from "dayjs";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -11,9 +12,10 @@ function CardPostIntro({
 }) {
   const convertDay = dayjs(createdAt, "DD-MM-YYYY").toString();
   return (
-    <div className="blog-slider__item swiper-slide">
+    <div className="blog-slider__item swiper-slide"> 
       <div className="blog-slider__img">
-        <img src={imageUrl} alt="slider example" />
+        {/* <Image layout="fill" src={imageUrl} alt="slider example" /> */}
+        <img src={imageUrl} loading="lazy" alt="slider example" />
       </div>
       <div className="blog-slider__content">
         <span className="blog-slider__code">{convertDay}</span>
